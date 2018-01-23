@@ -12,8 +12,10 @@
   <body>
     <div class="container">
       <ul class="nav nav-tabs">
-        <li><%= link_to "Blocitoff", root_path %></li>
+        <li><%= link_to "Blocitoff", welcome_path %></li>
         <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Profile", current_user %></li>
+        <li><%= link_to "Users", users_path %></li>
         <% if user_signed_in? %>
           Signed in as: <strong><%= current_user.email %></strong> |
           <li class="pull-right"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
