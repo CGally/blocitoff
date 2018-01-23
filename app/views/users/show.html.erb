@@ -1,0 +1,15 @@
+<div class="col-md-8">
+  <div class="media">
+    <% avatar_url = @user.avatar_url(90) %>
+    <% if avatar_url %>
+      <div class="media-left">
+        <%= image_tag avatar_url, class: 'media-object' %>
+      </div>
+      <% end %>
+    <div class="media-body">
+      <h2 class="media-heading"><%= @user.name %></h2>
+      <h5><%= @user.email %></h5>
+      <p>Member since <%= @user.created_at.strftime('%x') %></p>
+    </div>
+  </div>
+</div>
