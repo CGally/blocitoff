@@ -8,7 +8,8 @@
         <%= item.name %>
       </h4>
       <p>
-        created <%= time_ago_in_words(item.created_at) %> ago
+        created <strong><%= time_ago_in_words(item.created_at) %></strong> ago.</br>
+        In <strong><%= distance_of_time_in_words(Time.now, item.created_at + 7.days )%></strong> item will be deleted.
       </p>
     </div>
   </div>
