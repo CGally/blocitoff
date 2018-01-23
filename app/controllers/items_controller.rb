@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  respond_to :html, :js
+
   def create
     @item = Item.new(item_params)
     @item.user = current_user
@@ -11,6 +13,18 @@ class ItemsController < ApplicationController
       redirect_to current_user
     end
   end
+
+  def destroy
+    @item = Item.find(params[:id])
+
+    if @item.destroy
+      flash[:notice] = "'#{@item.name}' has been completed."
+      redirect_to current_user
+    else
+      flash[:alert] = "Error completing to-do. Please try again."
+      redirect_to current_user
+    end
+end
 
   private
 
