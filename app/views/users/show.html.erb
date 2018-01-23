@@ -12,6 +12,18 @@
       <h5>Member since: <%= @user.created_at.strftime('%x') %></h5>
     </div>
   </div>
+  <div class='private'>
+    <%= form_for [@user] do |f| %>
+      <% if current_user == @user %>
+        <%= f.label :private, class: 'checkbox' do %>
+          <%= f.check_box :private %> Make profile private
+        <% end %>
+        <div class="form-group">
+          <%= f.submit "Save", class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
   <% if current_user == @user %>
     <div class="col-md-8">

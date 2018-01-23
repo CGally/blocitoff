@@ -11,7 +11,8 @@ require 'faker'
   User.create!(
     name: Faker::RickAndMorty.character,
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: Faker::Internet.password,
+    private: false
   )
 end
 

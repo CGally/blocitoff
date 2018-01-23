@@ -5,12 +5,14 @@
 <h2>Users</h2>
 <div class="col-md-8">
 <% @users.each do |user| %>
-  <div class="media">
-    <div class="media-body">
-      <h4 class="media-heading">
-        <%= link_to user.name, user %>
-      </h4>
+  <% if !user.private || current_user == user %>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= link_to user.name, user %>
+        </h4>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
 </div>
